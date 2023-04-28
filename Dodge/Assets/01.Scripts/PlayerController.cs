@@ -56,9 +56,12 @@ public class PlayerController : MonoBehaviour
         playerRigidbody.velocity = newVelocity;
     }
 
-    public void Die()
+    public void Die() // 총알이 실행
     {
         gameObject.SetActive(false);
         // 자신의 게임 오브젝트 비활성화
+
+        GameManager gameManager = FindAnyObjectByType<GameManager>(); // 씬에 존재하는 GameManager 타입의 오브젝트를 찾아서 가져오기
+        gameManager.EndGame(); // 기져온 GameManager 오브젝트의 EndGame() 메서드 실행
     }
 }
